@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skc.BestPractices.CommandManager", "Skc.BestPractices.CommandManager\Skc.BestPractices.CommandManager.csproj", "{730182F0-25D4-4093-B343-A6B9C4A8A3F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skc.BestPractices.CommandManager.Tests", "Skc.BestPractices.CommandManager.Tests\Skc.BestPractices.CommandManager.Tests.csproj", "{E29AF801-44BC-0266-02FF-C9409B1CA0BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{730182F0-25D4-4093-B343-A6B9C4A8A3F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{730182F0-25D4-4093-B343-A6B9C4A8A3F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{730182F0-25D4-4093-B343-A6B9C4A8A3F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{730182F0-25D4-4093-B343-A6B9C4A8A3F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E29AF801-44BC-0266-02FF-C9409B1CA0BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E29AF801-44BC-0266-02FF-C9409B1CA0BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E29AF801-44BC-0266-02FF-C9409B1CA0BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E29AF801-44BC-0266-02FF-C9409B1CA0BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0A1DCBF-FC20-439D-A319-EF986F8CCC92}
+	EndGlobalSection
+EndGlobal
