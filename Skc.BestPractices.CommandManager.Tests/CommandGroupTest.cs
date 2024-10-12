@@ -6,7 +6,6 @@ namespace Skc.BestPractices.CommandManager.Tests;
 [TestFixture]
 public class CommandGroupTest
 {
-
     [Test]
     public void ConstructorTest()
     {

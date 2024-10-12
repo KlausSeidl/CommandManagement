@@ -7,8 +7,20 @@ namespace Skc.BestPractices.CommandManager.Tests;
 [TestFixture]
 public class CommandManagerTest
 {
+    [SetUp]
+    public void TestInitialize()
+    {
+        _testClass = new CommandManager();
+
+        _isDiscarded = false;
+        _isExecutingRaised = false;
+        _isExecutedRaised = false;
+        _isCommandHistoryChangedRaised = false;
+        _isCommandFutureChangedRaised = false;
+    }
+
     private CommandManager _testClass;
-    
+
     private bool _isDiscarded;
     private bool _isExecutingRaised;
     private bool _isExecutedRaised;
@@ -41,18 +53,6 @@ public class CommandManagerTest
     private void CommandManager_CommandFutureChanged(object sender, EventArgs e)
     {
         _isCommandFutureChangedRaised = true;
-    }
-    
-    [SetUp]
-    public void TestInitialize()
-    {
-        _testClass = new CommandManager();
-
-        _isDiscarded = false;
-        _isExecutingRaised = false;
-        _isExecutedRaised = false;
-        _isCommandHistoryChangedRaised = false;
-        _isCommandFutureChangedRaised = false;
     }
 
     [Test]
@@ -181,7 +181,7 @@ public class CommandManagerTest
         _testClass.Execute(new TestCommand());
 
         // Act
-        bool result = _testClass.IsAtMarker();
+        var result = _testClass.IsAtMarker();
 
         // Assert
         result.Should().BeFalse();

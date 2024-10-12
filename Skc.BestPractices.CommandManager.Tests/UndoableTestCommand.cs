@@ -2,7 +2,6 @@
 
 public class UndoableTestCommand : Command
 {
-
     public UndoableTestCommand()
     {
         CanBeUndone = false;

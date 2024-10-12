@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
-    <LangVersion>latestmajor</LangVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="FluentAssertions" Version="6.12.1" />
-    <PackageReference Include="NUnit" Version="3.13.3" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Skc.BestPractices.CommandManager\Skc.BestPractices.CommandManager.csproj" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <LangVersion>latestmajor</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="FluentAssertions" Version="6.12.1"/>
+        <PackageReference Include="NUnit" Version="3.13.3"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Skc.BestPractices.CommandManager\Skc.BestPractices.CommandManager.csproj"/>
+    </ItemGroup>
 </Project>

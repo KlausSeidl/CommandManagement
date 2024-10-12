@@ -6,7 +6,6 @@ namespace Skc.BestPractices.CommandManager.Tests;
 [TestFixture]
 public class ExecutingEventArgsTest
 {
-
     [Test]
     public void ConstructorTest()
     {

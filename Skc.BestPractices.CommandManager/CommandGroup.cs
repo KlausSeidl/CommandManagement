@@ -1,81 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Skc.BestPractices.CommandManager
+namespace Skc.BestPractices.CommandManager;
+
+/// <summary>
+///     The CommandGroup class is a Command object
+///     that can store sub-commands to build groups or macros.
+/// </summary>
+public class CommandGroup : Command
 {
+    private readonly List<Command> _commands;
+
     /// <summary>
-    ///     The CommandGroup class is a Command object
-    ///     that can store sub-commands to build groups or macros.
+    ///     Initializes a new instance of the CommandGroup class.
     /// </summary>
-    public class CommandGroup : Command
+    public CommandGroup()
     {
-        private readonly List<Command> _commands;
+        _commands = new List<Command>();
+    }
 
-        /// <summary>
-        ///     Initializes a new instance of the CommandGroup class.
-        /// </summary>
-        public CommandGroup()
+    /// <summary>
+    ///     Gets number of commands included in the CommandGroup.
+    /// </summary>
+    public int Count => _commands.Count;
+
+    protected internal override object Execute()
+    {
+        Command cmd;
+        int i;
+
+        for (i = 0; i <= _commands.Count - 1; i++)
         {
-            _commands = new List<Command>();
+            cmd = _commands[i];
+            cmd.Execute();
         }
 
-        /// <summary>
-        ///     Gets number of commands included in the CommandGroup.
-        /// </summary>
-        public int Count => _commands.Count;
-
-        protected internal override object Execute()
+        // Remove discarded commands to save memory
+        for (i = _commands.Count - 1; i >= 0; i += -1)
         {
-            Command cmd;
-            int i;
-
-            for (i = 0; i <= _commands.Count - 1; i++)
-            {
-                cmd = _commands[i];
-                cmd.Execute();
-            }
-
-            // Remove discarded commands to save memory
-            for (i = _commands.Count - 1; i >= 0; i += -1)
-            {
-                cmd = _commands[i];
-                if (cmd.Discard)
-                {
-                    _commands.RemoveAt(i);
-                }
-            }
-
-            return null;
+            cmd = _commands[i];
+            if (cmd.Discard) _commands.RemoveAt(i);
         }
 
-        protected internal override object Undo()
-        {
-            for (int i = _commands.Count - 1; i >= 0; i += -1)
-            {
-                _commands[i].Undo();
-            }
+        return null;
+    }
 
-            return null;
-        }
+    protected internal override object Undo()
+    {
+        for (var i = _commands.Count - 1; i >= 0; i += -1) _commands[i].Undo();
 
-        /// <summary>
-        ///     Adds a command to the CommandGroup.
-        /// </summary>
-        /// <param name="command">A <see cref="Command" /> object.</param>
-        /// <exception cref="ArgumentNullException">Thrown when command is a null reference (Nothing in Visual Basic)</exception>
-        public void Add(Command command)
-        {
-            // Check parameters
-            if (command == null)
-            {
-                throw new ArgumentNullException(nameof(command), "command is null");
-            }
+        return null;
+    }
 
-            // Add to group if not discarded
-            if (command.Discard == false)
-            {
-                _commands.Add(command);
-            }
-        }
+    /// <summary>
+    ///     Adds a command to the CommandGroup.
+    /// </summary>
+    /// <param name="command">A <see cref="Command" /> object.</param>
+    /// <exception cref="ArgumentNullException">Thrown when command is a null reference (Nothing in Visual Basic)</exception>
+    public void Add(Command command)
+    {
+        // Check parameters
+        if (command == null) throw new ArgumentNullException(nameof(command), "command is null");
+
+        // Add to group if not discarded
+        if (command.Discard == false) _commands.Add(command);
     }
 }
