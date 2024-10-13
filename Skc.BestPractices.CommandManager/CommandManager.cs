@@ -54,6 +54,12 @@ public sealed class CommandManager
         _marker = null;
     }
 
+    /// <summary>
+    ///     Returns true, if the CommandManager is currently in building a group.
+    /// </summary>
+    /// <remarks>
+    ///     See <see cref="BeginGroup"/> and <see cref="EndGroup"/> for details about building command groups (macros) 
+    /// </remarks>
     public bool IsGroup => _currentGroup != null;
 
 

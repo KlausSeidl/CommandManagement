@@ -4,5 +4,13 @@
         <TargetFrameworks>netstandard2.0;net48</TargetFrameworks>
         <LangVersion>latestmajor</LangVersion>
         <RepositoryUrl>https://github.com/KlausSeidl/CommandManagement</RepositoryUrl>
+        <Version>1.0.2</Version>
+        <Title>Skc.BestPractices.CommandManager</Title>
+        <Authors>Klaus Seidl</Authors>
+        <Description>A simple implementation of the Undo/Redo Command design pattern</Description>
+        <PackageLicenseUrl>https://opensource.org/license/gpl-3-0</PackageLicenseUrl>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\Skc.BestPractices.CommandManager.xml</DocumentationFile>
     </PropertyGroup>
 </Project>

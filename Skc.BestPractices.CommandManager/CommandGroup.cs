@@ -20,10 +20,25 @@ public class CommandGroup : Command
     }
 
     /// <summary>
+    ///     Adds a command to the CommandGroup.
+    /// </summary>
+    /// <param name="command">A <see cref="Command" /> object.</param>
+    /// <exception cref="ArgumentNullException">Thrown when command is a null reference (Nothing in Visual Basic)</exception>
+    public void Add(Command command)
+    {
+        // Check parameters
+        if (command == null) throw new ArgumentNullException(nameof(command), "command is null");
+
+        // Add to group if not discarded
+        if (command.Discard == false) _commands.Add(command);
+    }
+
+    /// <summary>
     ///     Gets number of commands included in the CommandGroup.
     /// </summary>
     public int Count => _commands.Count;
 
+    /// <inheritdoc />
     protected internal override object Execute()
     {
         Command cmd;
@@ -45,24 +60,11 @@ public class CommandGroup : Command
         return null;
     }
 
+    /// <inheritdoc />
     protected internal override object Undo()
     {
         for (var i = _commands.Count - 1; i >= 0; i += -1) _commands[i].Undo();
 
         return null;
-    }
-
-    /// <summary>
-    ///     Adds a command to the CommandGroup.
-    /// </summary>
-    /// <param name="command">A <see cref="Command" /> object.</param>
-    /// <exception cref="ArgumentNullException">Thrown when command is a null reference (Nothing in Visual Basic)</exception>
-    public void Add(Command command)
-    {
-        // Check parameters
-        if (command == null) throw new ArgumentNullException(nameof(command), "command is null");
-
-        // Add to group if not discarded
-        if (command.Discard == false) _commands.Add(command);
     }
 }

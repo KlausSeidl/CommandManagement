@@ -2,7 +2,9 @@
 
 namespace Skc.BestPractices.CommandManager;
 
-/// <summary>Provides data for the <see cref="Command.Executed" /> event.</summary>
+/// <summary>
+///     Provides data for the <see cref="Command.Executed" /> event.
+/// </summary>
 public class NotifyEventArgs : EventArgs
 {
     /// <summary>Initializes a new instance of the NotifyEventArgs class with a message.</summary>
