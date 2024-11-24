@@ -9,15 +9,7 @@ namespace Skc.BestPractices.CommandManager;
 /// </summary>
 public class CommandGroup : Command
 {
-    private readonly List<Command> _commands;
-
-    /// <summary>
-    ///     Initializes a new instance of the CommandGroup class.
-    /// </summary>
-    public CommandGroup()
-    {
-        _commands = new List<Command>();
-    }
+    private readonly List<Command> _commands = [];
 
     /// <summary>
     ///     Adds a command to the CommandGroup.
@@ -27,10 +19,16 @@ public class CommandGroup : Command
     public void Add(Command command)
     {
         // Check parameters
-        if (command == null) throw new ArgumentNullException(nameof(command), "command is null");
+        if (command == null)
+        {
+            throw new ArgumentNullException(nameof(command), "command is null");
+        }
 
         // Add to group if not discarded
-        if (command.Discard == false) _commands.Add(command);
+        if (command.Discard == false)
+        {
+            _commands.Add(command);
+        }
     }
 
     /// <summary>
@@ -41,19 +39,16 @@ public class CommandGroup : Command
     /// <inheritdoc />
     protected internal override object Execute()
     {
-        Command cmd;
-        int i;
-
-        for (i = 0; i <= _commands.Count - 1; i++)
+        for (var i = 0; i <= _commands.Count - 1; i++)
         {
-            cmd = _commands[i];
+            var cmd = _commands[i];
             cmd.Execute();
         }
 
         // Remove discarded commands to save memory
-        for (i = _commands.Count - 1; i >= 0; i += -1)
+        for (var i = _commands.Count - 1; i >= 0; i += -1)
         {
-            cmd = _commands[i];
+            var cmd = _commands[i];
             if (cmd.Discard) _commands.RemoveAt(i);
         }
 
