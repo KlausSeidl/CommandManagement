@@ -4,7 +4,7 @@
         <TargetFrameworks>netstandard2.0;net48</TargetFrameworks>
         <LangVersion>latestmajor</LangVersion>
         <RepositoryUrl>https://github.com/KlausSeidl/CommandManagement</RepositoryUrl>
-        <Version>1.0.3</Version>
+        <Version>1.0.4</Version>
         <Title>Skc.BestPractices.CommandManager</Title>
         <Authors>Klaus Seidl</Authors>
         <Description>A simple implementation of the Undo/Redo Command design pattern</Description>

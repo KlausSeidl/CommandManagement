@@ -34,8 +34,11 @@ public class Macro : Command
         for (var i = 0; i <= _commandFactories.Count - 1; i++)
         {
             var cmd = _commandFactories[i]();
-            cmd.Execute();
-            _commands.Add(cmd);
+            if (!cmd.Discard)
+            {
+                cmd.Execute();
+                _commands.Add(cmd);
+            }
         }
 
         return null;

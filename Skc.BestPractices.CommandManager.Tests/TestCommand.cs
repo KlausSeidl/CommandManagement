@@ -20,10 +20,11 @@ public class TestCommandWithCallback : Command
     private readonly Action _executeAction;
     private readonly Action _undoAction;
 
-    public TestCommandWithCallback(Action executeAction, Action undoAction)
+    public TestCommandWithCallback(Action executeAction, Action undoAction, bool discard = false)
     {
         _executeAction = executeAction;
         _undoAction = undoAction;
+        Discard = discard;
     }
 
     protected override object Execute()
